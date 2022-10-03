@@ -4,16 +4,16 @@
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
     "build": "npm run build:contract && npm run build:web",
-      "build:contract": "cd contract && npm run build && mkdir -p ../out && cp ./out/main.wasm ../out/main.wasm",
-      "build:web": "parcel build frontend/index.html --public-url ./",
+    "build:contract": "cd contract && npm run build && mkdir -p ../out && cp ./out/main.wasm ../out/main.wasm",
+    "build:web": "parcel build frontend/index.html --public-url ./",
     "deploy": "npm run build:contract && near dev-deploy",
     "start": "npm run deploy && echo The app is starting! && env-cmd -f ./neardev/dev-account.env parcel frontend/index.html --open",
     "dev": "npm run deploy && nodemon --watch contract -e ts --exec \"npm run start\"",
     "test": "npm run test:unit && npm run test:integration",
-      "test:unit": "npm run build:contract && cd contract && npm run test",
-      "test:integration": "npm run test:integration:ts && npm run test:integration:rs",
-        "test:integration:ts": "ava --verbose",
-        "test:integration:rs": "cd integration-tests/rs && cargo run --example integration-tests"
+    "test:unit": "npm run build:contract && cd contract && npm run test",
+    "test:integration": "npm run test:integration:ts && npm run test:integration:rs",
+    "test:integration:ts": "ava --verbose",
+    "test:integration:rs": "cd integration-tests/rs && cargo run --example integration-tests"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -21,27 +21,39 @@
     "@babel/preset-react": "^7.17.12",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
+    "ava": "^4.3.0",
     "eslint": "^8.18.0",
     "gh-pages": "^4.0.0",
     "near-cli": "^3.3.1",
     "near-sdk-as": "^3.2.3",
+    "near-workspaces": "^3.1.0",
     "nodemon": "^2.0.18",
     "parcel-bundler": "^1.12.5",
     "react-test-renderer": "^18.2.0",
     "sass": "^1.53.0",
-    "ava": "^4.3.0",
-    "near-workspaces": "^3.1.0",
-    "typescript": "^4.7.4",
-    "ts-node": "^10.8.1"
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@near-wallet-selector/core": "^7.0.3",
+    "@near-wallet-selector/default-wallets": "^7.0.3",
+    "@near-wallet-selector/math-wallet": "^7.0.3",
+    "@near-wallet-selector/meteor-wallet": "^7.0.3",
+    "@near-wallet-selector/modal-ui": "^7.0.3",
+    "@near-wallet-selector/near-wallet": "^7.0.3",
+    "@near-wallet-selector/nightly": "^7.0.3",
+    "@near-wallet-selector/nightly-connect": "^7.0.3",
+    "@near-wallet-selector/sender": "^7.0.3",
+    "@near-wallet-selector/wallet-connect": "^7.0.3",
     "big.js": "^6.2.0",
     "env-cmd": "^10.1.0",
+    "eventemitter3": "^4.0.7",
     "near-api-js": "^0.45.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "rxjs": "^7.5.7"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"
