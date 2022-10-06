@@ -4,14 +4,12 @@ import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupDefaultWallets } from "@near-wallet-selector/default-wallets";
 import { setupNearWallet } from "@near-wallet-selector/near-wallet";
-// import { setupHereWallet } from "@near-wallet-selector/here-wallet";
 import { setupSender } from "@near-wallet-selector/sender";
 import { setupMathWallet } from "@near-wallet-selector/math-wallet";
 import { setupNightly } from "@near-wallet-selector/nightly";
 import { setupMeteorWallet } from "@near-wallet-selector/meteor-wallet";
 import { setupNightlyConnect } from "@near-wallet-selector/nightly-connect";
 import { setupWalletConnect } from "@near-wallet-selector/wallet-connect";
-// import { setupCoin98Wallet } from "@near-wallet-selector/coin98-wallet";
 import { CONTRACT_ID } from "../constants";
 
 const WalletSelectorContext =
@@ -28,9 +26,7 @@ export const WalletSelectorContextProvider = ({ children }) => {
       debug: true,
       modules: [
         ...(await setupDefaultWallets()),
-        // setupHereWallet(),
         setupNearWallet(),
-        // setupCoin98Wallet(),
         setupSender(),
         setupMathWallet(),
         setupNightly(),
